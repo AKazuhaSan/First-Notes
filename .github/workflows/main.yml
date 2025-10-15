@@ -21,4 +21,4 @@ jobs:
           OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
         run: |
           npm install -g @alicloud/ossutil
-          ossutil cp -r docs/.vitepress/dist/ oss://my-docs-bucket/ --update
+          ossutil cp -r docs/.vitepress/dist/ oss://finance-study-note/ --update
