@@ -13,13 +13,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
-      - run: npm install
-      - run: npm run build
       - name: Download OSSUTIL
         run: |
           wget https://gosspublic.alicdn.com/ossutil/v2/2.2.0/ossutil-2.2.0-linux-amd64.zip?spm=a2c4g.11186623.0.0.27753000dUpU4Y&file=ossutil-2.2.0-linux-amd64.zip
+      - name: unzip OSSUTIL
+        run: |
           unzip ossutil-2.2.0-linux-amd64.zip ./
           chmod +x ossutil
+      
+      - run: npm install
+      - run: npm run build
+      
           
       - name: Upload to OSS
         env:
