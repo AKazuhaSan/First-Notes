@@ -15,10 +15,15 @@ jobs:
           node-version: 20
       - run: npm install
       - run: npm run build
+      - name: Download OSSUTIL
+        run: |
+          curl -L -o ossutil64 https://gosspublic.alicdn.com/ossutil/v2/2.2.0/ossutil-2.2.0-linux-amd64.zip?spm=a2c4g.11186623.0.0.27753000dUpU4Y&file=ossutil-2.2.0-linux-amd64.zip
+          zip ossutil-2.2.0-linux-amd64.zip ./
+          chmod +x ossutil
+          
       - name: Upload to OSS
         env:
           OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
           OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
         run: |
-          npm install -g @alicloud/ossutil
-          ossutil cp -r docs/.vitepress/dist/ oss://finance-study-note/ --update
+          ./ossutil cp -r docs/.vitepress/dist/ oss://finance-study-note/ --update
