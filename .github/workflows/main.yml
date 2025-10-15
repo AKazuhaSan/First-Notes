@@ -19,7 +19,7 @@ jobs:
 
       - name: unzip and authorize OSSUTIL
         run: |
-          unzip ossutil-2.2.0-linux-amd64.zip
+          unzip -j ossutil-2.2.0-linux-amd64.zip
           chmod +x ossutil
       
       - run: npm install
