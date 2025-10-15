@@ -31,4 +31,4 @@ jobs:
           OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
           OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
         run: |
-          ./ossutil cp -r docs/.vitepress/dist/ oss://finance-study-note/ --update -e oss-cn-hongkong.aliyuncs.com --sign-version v4
+          ./ossutil --sign-version v4 --region oss-cn-hongkong.aliyuncs.com cp -r docs/.vitepress/dist/ oss://finance-study-note/
