@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 20
       - run: npm install
-      - run: npm run docs:build
+      - run: npm run build
       - name: Upload to OSS
         env:
           OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
